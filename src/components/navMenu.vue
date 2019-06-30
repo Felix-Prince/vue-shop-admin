@@ -7,8 +7,8 @@
     background-color="#545c64"
     text-color="#fff"
     active-text-color="#ffd04b"
-    unique-opened="true"
-    router="true"
+    :unique-opened="true"
+    :router="true"
   >
     <el-submenu index="1">
       <template slot="title">
@@ -28,13 +28,13 @@
         <i class="el-icon-location"></i>
         <span>权限管理</span>
       </template>
-      <el-menu-item index="2-1">
+      <el-menu-item index="/roles">
         <template slot="title">
           <i class="el-icon-menu"></i>
           <span>角色列表</span>
         </template>
       </el-menu-item>
-      <el-menu-item index="2-2">
+      <el-menu-item index="/rights">
         <template slot="title">
           <i class="el-icon-menu"></i>
           <span>权限列表</span>
@@ -47,19 +47,19 @@
         <i class="el-icon-location"></i>
         <span>商品管理</span>
       </template>
-      <el-menu-item index="3-1">
+      <el-menu-item index="/goods">
         <template slot="title">
           <i class="el-icon-menu"></i>
           <span>商品列表</span>
         </template>
       </el-menu-item>
-      <el-menu-item index="3-2">
+      <el-menu-item index="/params">
         <template slot="title">
           <i class="el-icon-menu"></i>
           <span>分类参数</span>
         </template>
       </el-menu-item>
-      <el-menu-item index="3-3">
+      <el-menu-item index="/categories">
         <template slot="title">
           <i class="el-icon-menu"></i>
           <span>商品分类</span>
@@ -72,7 +72,7 @@
         <i class="el-icon-location"></i>
         <span>订单管理</span>
       </template>
-      <el-menu-item index="4-1">
+      <el-menu-item index="/orders">
         <template slot="title">
           <i class="el-icon-menu"></i>
           <span>订单列表</span>
@@ -85,7 +85,7 @@
         <i class="el-icon-location"></i>
         <span>数据统计</span>
       </template>
-      <el-menu-item index="5-1">
+      <el-menu-item index="/reports">
         <template slot="title">
           <i class="el-icon-menu"></i>
           <span>数据报表</span>
