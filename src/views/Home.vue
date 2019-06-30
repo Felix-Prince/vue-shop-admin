@@ -6,11 +6,11 @@
           <img src="../assets/logo.png" alt />
         </el-col>
         <el-col>
-          <h1>电商后台管理系统</h1>
+          <h1>League of Legends管理系统</h1>
         </el-col>
         <el-col :span="6">
           <div class="logout">
-            欢迎上海前端31期星曜会员
+            欢迎召唤师峡谷顶尖hero
             <a href="javascript:;">退出</a>
           </div>
         </el-col>

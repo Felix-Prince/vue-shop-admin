@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 // import store from "./store";
 import ElementUI from "element-ui";
+import axios from 'axios';
 
 // 引入elementUI的CSS样式
 import "element-ui/lib/theme-chalk/index.css";
@@ -10,6 +11,22 @@ import "./assets/css/index.css"
 
 // 把引入的ElementUI添加到Vue上
 Vue.use(ElementUI)
+
+
+
+// 设置ajax请求的基地址，后面我们可以不用每次都要输入基地址
+axios.defaults.baseURL = "http://localhost:8888/api/private/v1/"
+
+axios.interceptors.request.use(function (config) {
+  // console.log(config)
+  config.headers.Authorization = localStorage.getItem('token')
+  return config;
+});
+
+Vue.prototype.$http = axios
+
+
+
 
 
 /* 
