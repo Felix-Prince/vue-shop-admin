@@ -32,7 +32,7 @@
       </el-table-column>
       <el-table-column label="用户状态" width="180" v-slot="{row}">
         <template>
-          <el-switch v-model="row.type"></el-switch>
+          <el-switch v-model="row.mg_state"></el-switch>
         </template>
       </el-table-column>
 
