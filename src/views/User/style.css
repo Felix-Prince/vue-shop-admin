@@ -1,0 +1,7 @@
+.el-main .el-breadcrumb {
+  height: 50px;
+  background-color: #d4dae0;
+  line-height: 50px;
+  width: 100%;
+  padding-left: 10px;
+}
