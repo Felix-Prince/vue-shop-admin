@@ -95,3 +95,14 @@ ElementUI 知识
 | —      | 自定义列的内容，参数为 { row, column, $index } |
 | header | 自定义表头的内容. 参数为 { column, $index }    |
 
+## 角色列表
+
+使用了ElementUI中的tree组件，用到的tree组件属性及事件
+
+| default-expand-all   | 是否默认展开所有节点                                         |
+| -------------------- | ------------------------------------------------------------ |
+| default-checked-keys | 默认勾选的节点的 key 的数组                                  |
+| getCheckedKeys       | 若节点可被选择（即 `show-checkbox` 为 `true`），则返回目前被选中的节点的 key 所组成的数组 |
+| getHalfCheckedKeys   | 若节点可被选择（即 `show-checkbox` 为 `true`），则返回目前半选中的节点的 key 所组成的数组 |
+
+灵活使用\<el-row> 和\< el-col> 布局组件，可以布局出各类界面
