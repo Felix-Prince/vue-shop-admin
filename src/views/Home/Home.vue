@@ -184,6 +184,10 @@ export default {
     border: none;
   }
 }
+
+.el-main {
+  box-sizing: border-box;
+}
 </style>
 
 

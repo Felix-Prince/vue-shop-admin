@@ -6,7 +6,7 @@
       <el-breadcrumb-item>角色列表</el-breadcrumb-item>
     </el-breadcrumb>
 
-    <el-table :data="rolesData" style="width: 100%" ref="tableRoles">
+    <el-table :data="rolesData" style="width: 99%" ref="tableRoles">
       <el-table-column type="expand">
         <template v-slot="{row}">
           <el-row type="flex" class="level" v-for="level1 in row.children" :key="level1.id">
@@ -125,7 +125,7 @@ export default {
     };
   },
   methods: {
-    async getRoles() {
+    async getRoles(f = () => {}) {
       try {
         let {
           data: { data, meta }
@@ -134,6 +134,7 @@ export default {
         });
         if (meta.status == 200) {
           this.rolesData = data;
+          f();
         }
       } catch (err) {}
     },
@@ -196,39 +197,22 @@ export default {
       }
     },
     async delRight(row, id) {
-      // 通过rolesData信息中的数据，在显示模态框的时候，把当前角色已有的权限勾选上
-      row.children.forEach(l1 => {
-        this.checkedKey.push(l1.id);
-        l1.children.forEach(l2 => {
-          this.checkedKey.push(l2.id);
-          l2.children.forEach(l3 => {
-            this.checkedKey.push(l3.id);
+      try {
+        let res = await this.$http({
+          url: `roles/${row.id}/rights/${id}`,
+          method: "delete"
+        });
+
+        // console.log(res);
+        this.getRoles(() => {
+          this.$nextTick(() => {
+            this.$refs.tableRoles.toggleRowExpansion(
+              this.rolesData.find(v => v.id == row.id),
+              true
+            );
           });
         });
-      });
-
-      let rids = this.checkedKey.filter(v => v !== id).join(",");
-
-      let {
-        data: { data, meta }
-      } = await this.$http({
-        url: `roles/${row.id}/rights`,
-        method: "post",
-        data: {
-          rids
-        }
-      });
-
-      if (meta.status === 200) {
-        this.$message({
-          type: "success",
-          message: meta.msg,
-          duration: 1000
-        });
-
-        // this.$refs.tableRoles.toggleRowExpansion(row, true);
-        this.getRoles();
-      }
+      } catch (error) {}
     }
   },
   created() {

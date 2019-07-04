@@ -27,7 +27,9 @@ Vue.prototype.$http = axios
 
 
 
-
+// 也可以这么全局导入element-tree-grid 组件，这样就可以全局使用了
+// var ElTreeGrid = require('element-tree-grid');
+// Vue.component(ElTreeGrid.name, ElTreeGrid);
 
 /* 
   页面跳转前，通过守卫来进行拦截验证
