@@ -26,6 +26,15 @@ axios.interceptors.request.use(function (config) {
 Vue.prototype.$http = axios
 
 
+axios.interceptors.response.use(function (response) {
+
+  // console.log(response)
+  if (response.data.meta.status == 401) {
+    router.push("/login")
+  }
+  return response;
+})
+
 
 // 也可以这么全局导入element-tree-grid 组件，这样就可以全局使用了
 // var ElTreeGrid = require('element-tree-grid');
